@@ -1,24 +1,15 @@
 var AmpModel = require('ampersand-model');
-var PatternCollection = require('./pattern-collection');
 
-var SetModel = AmpModel.extend({
+var ExampleModel = AmpModel.extend({
 	props: {
-		id: 'string',
-		bpm: 'number',
-		name: 'string',
-		pool: 'array',
-		songs: 'array',  // TODO: extract collection
-		swing: 'number'
+		example: 'string'
 	},
-	collections: {
-		patterns: PatternCollection
-	},
-	initialize: function(setName) {
-		this.setName = setName;
+	initialize: function(id) {
+        this.id = id;
 	},
 	url: function() {
-		return '/api/set/' + this.setName;
+		return '/api/example/' + this.id;
 	}
 });
 
-module.exports = SetModel;
+module.exports = ExampleModel;
