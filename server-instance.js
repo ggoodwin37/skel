@@ -30,9 +30,7 @@ function startServerInstance(done) {
 		{
 			plugin: require('moonboots_hapi'),
 			options: {
-				// TODO: not optimal. I want '/' and '/set/{p*}' to both be handled by moonboots. how to specify
-				//   multiple routes to handle, without making multiple moonboots instances? probably just use a regex.
-				appPath: '/set/{p*}',
+				appPath: '/',
 				moonboots: {
 					main: __dirname + '/client/app.js',
 					developmentMode: config.isDev,
@@ -40,7 +38,6 @@ function startServerInstance(done) {
 						__dirname + '/dist/css/main.css'
 					],
 					beforeBuildJS: function() {
-
 						// TODO: investigate the build-time streaming approach
 						if (config.isDev) {
 							var templatizer = require('templatizer');
@@ -58,21 +55,8 @@ function startServerInstance(done) {
 	server.pack.register(serverPackList, function (err) {
 		if (err) throw err;
 
-		// TODO: /api/{etc*}  <- actually, do we need to specify api routes here or did mudskipper handle that?
-
-		// server.route(require('./resources/client')());
-		// server.route({
-		//     method: 'GET',
-		//     path: '/public/{param*}',
-		//     handler: {
-		//         directory: {
-		//             path: 'public'
-		//         }
-		//     }
-		// });
-
 		server.start(function () {
-			console.log('rhythm-ninja is running at', server.info.uri);
+			console.log('running at', server.info.uri);
 			done && done(server);
 		});
 	});
