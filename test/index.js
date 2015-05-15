@@ -34,4 +34,4 @@ before(function(done) {
 
 require('./server')(ctx);
 require('./mongo-mongoose')(ctx);
-//require('./api-example')(ctx);
+require('./api-example')(ctx);

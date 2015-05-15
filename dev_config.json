@@ -2,7 +2,7 @@
 	isDev: true,
 	serverHost: "localhost",
 	serverPort: 8080,
-	dbName: 'my-dev',
+	dbName: 'myDevDb',
 	mongooseDebug: true,
 
 	fakeDelayOnGetMs: 350
