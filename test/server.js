@@ -13,10 +13,7 @@ module.exports = function(ctx) {
 
 		it('loaded config', function(done) {
 			expect(!!ctx.app.config).to.equal(true);
-			expect(ctx.app.config.logThings).to.be.an('object');
-			if (ctx.app.config.logThings['test--show-config']) {
-				inspect(ctx.app.config);
-			}
+			expect(ctx.app.config).to.be.an('object');
 			done();
 		});
 
@@ -33,9 +30,7 @@ module.exports = function(ctx) {
 
 		it('can dump all routes', function(done) {
 			ctx.table.forEach(function(route) {
-				if(ctx.app.config.logThings['test--show-all-api-routes']) {
-					console.log(ctx.getRouteKey(route));
-				}
+				console.log(ctx.getRouteKey(route));
 			});
 			done();
 		});

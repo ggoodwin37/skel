@@ -12,9 +12,6 @@ var ctx = {
 	server: null,
 	table: null,
 
-	setName: null,
-	baseSetUrl: null,
-
 	app: {config: config},
 
 	getRouteKey: function(route) {
@@ -37,4 +34,4 @@ before(function(done) {
 
 require('./server')(ctx);
 require('./mongo-mongoose')(ctx);
-require('./api-example')(ctx);
+//require('./api-example')(ctx);
