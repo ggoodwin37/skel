@@ -1,7 +1,7 @@
 {
-  "name": "rhythm-ninja",
+  "name": "skel",
   "version": "0.0.1",
-  "description": "Collaborative web drum machine",
+  "description": "Web app skeleton with node/hapi/mongo/ampersand and more",
   "main": "index.js",
   "scripts": {
     "test": "./run-test.sh",
