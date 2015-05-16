@@ -26,29 +26,15 @@ module.exports = function(ctx) {
 			});
 		});
 
-		// assume the api connected mongoose already.
-		// it('should be able to call mongoose.connect', function(done) {
-		// 	mongoose.connect('mongodb://localhost/ggtest');
-		// 	var db = mongoose.connection;
-		// 	db.on('error', function(err) {
-		// 		console.log('connection error: ' + err);
-		// 		done();
-		// 	});
-		// 	db.once('open', function callback () {
-		// 		ctx.app.mongooseStarted = true;
-		// 		done();
-		// 	});
-		// });
-
-		var personFactory;
+		var testFactory;
 		it('should be able to create a schema, factory, and instance', function(done) {
 			expect(ctx.app.mongooseStarted).to.equal(true);
-			var personSchema = mongoose.Schema({
+			var testSchema = mongoose.Schema({
 				name: {type: String, default: 'name'},
 				age: {type: Number, default: 1}
 			});
-			personFactory = mongoose.model('testperson', personSchema);
-			var person = new personFactory({name: 'bob'});
+			testFactory = mongoose.model('testModel', testSchema);
+			var person = new testFactory({name: 'bob'});
 			person.save(function(err) {
 				expect(!err).to.equal(true);
 				done();
@@ -57,7 +43,7 @@ module.exports = function(ctx) {
 
 		it('should give me an id for a new instance', function(done) {
 			expect(ctx.app.mongooseStarted).to.equal(true);
-			var person = new personFactory({name: 'terry'});
+			var person = new testFactory({name: 'joe'});
 			person.save(function(err) {
 				var id = person.id;
 				expect(!err).to.equal(true);
@@ -68,14 +54,14 @@ module.exports = function(ctx) {
 
 		it('should let me drop existing', function(done) {
 			expect(ctx.app.mongooseStarted).to.equal(true);
-			personFactory.remove({}, function(err) {
+			testFactory.remove({}, function(err) {
 				done();
 			});
 		});
 
 		it('should have zero remaining', function(done) {
 			expect(ctx.app.mongooseStarted).to.equal(true);
-			personFactory.find({}, function(err, docs) {
+			testFactory.find({}, function(err, docs) {
 				expect(!!err).to.equal(false);
 				expect(docs.length).to.equal(0);
 				done();
