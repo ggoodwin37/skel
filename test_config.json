@@ -1,16 +1,7 @@
 {
-	isDev: true,
-	serverHost: "localhost",
-	serverPort: 8080,
-	dbName: 'rn-test',
-	mongooseDebug: false,
-
-	logThings: {
-		'test--show-config': false,
-		'test--show-all-api-routes': false,
-		'test--list-collections': false,
-		'test--show-set-models': false,
-		'test--show-all-models': false,
-		'api--create-stuff': false
-	}
+    isDev: true,
+    serverHost: "localhost",
+    serverPort: 8080,
+    dbName: 'myTestDb',
+    mongooseDebug: false
 }

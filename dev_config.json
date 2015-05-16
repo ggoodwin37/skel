@@ -1,17 +1,9 @@
 {
-	isDev: true,
-	serverHost: "localhost",
-	serverPort: 8080,
-	dbName: 'rn-dev',
-	mongooseDebug: true,
+    isDev: true,
+    serverHost: "localhost",
+    serverPort: 8080,
+    dbName: 'myDevDb',
+    mongooseDebug: true,
 
-	fakeDelayOnGetMs: 350,
-
-	logThings: {
-		'test--show-config': false,
-		'test--show-all-api-routes': false,
-		'test--list-collections': false,
-		'test--show-all-models': false,
-		'api--create-stuff': false
-	}
+    fakeDelayOnGetMs: 350
 }
