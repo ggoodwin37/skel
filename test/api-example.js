@@ -1,18 +1,18 @@
 var inspect = require('eyes').inspector({hideFunctions: true, maxLength: null});
 
 module.exports = function(ctx) {
-	var Lab = require('lab');
+    var Lab = require('lab');
 
-	// Test shortcuts
-	var expect = Lab.expect;
-	var before = Lab.before;
-	var after = Lab.after;
-	var describe = Lab.experiment;
-	var it = Lab.test;
+    // Test shortcuts
+    var expect = Lab.expect;
+    var before = Lab.before;
+    var after = Lab.after;
+    var describe = Lab.experiment;
+    var it = Lab.test;
 
     var baseUrl = '/api/example';
     var exampleId;
-	describe('verify example api:', function () {
+    describe('verify example api:', function () {
         it('should let me create a new example object', function(done) {
             var data = {
                 example: 'test-value'
@@ -61,5 +61,5 @@ module.exports = function(ctx) {
             });
         });
 
-	});
+    });
 };

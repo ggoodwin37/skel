@@ -6,9 +6,9 @@ var less = require('gulp-less');
 //  see http://markgoodyear.com/2014/01/getting-started-with-gulp/
 
 gulp.task('less', function() {
-	gulp.src('./less/main.less')
-		.pipe(less({
-			//paths: [path.join(__dirname, 'less', 'includes')]
-		}))
-		.pipe(gulp.dest('./dist/css'));
+    gulp.src('./less/main.less')
+        .pipe(less({
+            //paths: [path.join(__dirname, 'less', 'includes')]
+        }))
+        .pipe(gulp.dest('./dist/css'));
 });
